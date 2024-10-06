@@ -1,78 +1,128 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PH-Assignment-6</title> 
-     <!--Tailwind and daisyUI CDN link  -->
-     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
-<script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            clifford: '#da373d',
-            primary: '#0E7A81',
-            text1: ' rgb(19, 19, 19)',
-            text2: 'rgba(19, 19, 19, 0.7)',
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PH-Assignment-6</title>
+    <!--Tailwind and daisyUI CDN link  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+              primary: "rgb(14, 122, 129);",
+              text1: " rgb(19, 19, 19)",
+              text2: "rgba(19, 19, 19, 0.7)",
+            },
+            fontFamily: {
+              lato: ["Lato", "sans-serif"],
+            },
           },
-          fontFamily: {
-            lato: ['Lato', 'sans-serif'],
-          }
-        }
-      }
-    }
-  </script>
-<!-- google font -->
- <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+        },
+      };
+    </script>
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+      rel="stylesheet"
+    />
     <!-- fav icon -->
-     <link rel="shortcut icon" href="./images/icons8-pets-48 (1).png" type="image/x-icon">
-</head>
-<body class="font-lato">
-    
-<!-- header section start here  -->
- <header>
-<nav class="container mx-auto border-2 mt-2">
-    <div class="navbar bg-base-100">
-  <div class="navbar-start">
-   <div class="flex items-center justify-center">
-    <img class="lg:w-10" src="./images/logo.webp" alt="">
-    <a class="btn btn-ghost text-xl md:font-black md:text-2xl lg:text-3xl text-text1">Peddy</a>
-   </div>
-  </div>
-  <div class="navbar-center  lg:flex">
-    <ul class="menu menu-horizontal px-1 lg:text-xl">
-      <li><a>Home</a></li>
-      <li><a href="">Shop</a></li>
-      
-      <li><a>Contact </a></li>
-    </ul>
-  </div>
-  <div class="navbar-end cursor-pointer">
-     <img class="w-8 md:w-10 lg:w-12" src="./images/Frame 4.png" alt="">
-  </div>
-</div>
+    <link
+      rel="shortcut icon"
+      href="./images/icons8-pets-48 (1).png"
+      type="image/x-icon"
+    />
+  </head>
+  <body class="font-lato">
+    <!-- header section start here  -->
+    <header class="container mx-auto">
+      <nav class="border-2 mt-2 px-3 md:px-0">
+        <div class="navbar bg-base-100">
+          <div class="navbar-start">
+            <div class="flex items-center justify-center">
+              <img class="lg:w-10" src="./images/logo.webp" alt="" />
+              <a
+                class="btn btn-ghost text-xl md:font-black md:text-2xl lg:text-3xl text-text1"
+                >Peddy</a
+              >
+            </div>
+          </div>
+          <div class="navbar-center lg:flex">
+            <ul class="menu menu-horizontal px-1 lg:text-xl">
+              <li><a>Home</a></li>
+              <li><a href="">Shop</a></li>
 
-</nav>
- </header>
-<!-- header section end here  -->
+              <li><a>Contact </a></li>
+            </ul>
+          </div>
+          <div class="navbar-end cursor-pointer">
+            <img
+              class="w-8 md:w-10 lg:w-12"
+              src="./images/Frame 4.png"
+              alt=""
+            />
+          </div>
+        </div>
+      </nav>
+      <!-- banner section start here -->
+      <section
+        class="flex flex-col justify-center items-center text-center mt-12"
+      >
+        <!-- text -->
+        <div class="border-2">
+          <h5 class="text-xl md:text-2xl font-medium text-text2">
+            Bringing Families Together ❤️‍🔥
+          </h5>
+          <h1
+            class="text-center text-text1 text-3xl md:text-4xl lg:text-6xl font-extrabold mt-2 md:mt-6 xl:mt-8 leading-tight"
+          >
+            Your Path to Adoption <br />
+            Starts Here
+          </h1>
 
-<!-- main section start here -->
- <main>
+          <p class="mt-2 md:mt-4 text-text2 px-2 md:px-0 xl:text-xl">
+            It is a long established fact that a reader will be distracted by
+            the readable content of a page when looking
+            <br class="hidden md:block" />
+            at its layout. The point of using Lorem Ipsum is that it has a.
+          </p>
+          <button
+            class="btn mt-2 md:mt-4 md:text-lg xl:text-xl md:font-semibold xl:font-bold bg-primary hover:bg-primary text-white text-center"
+          >
+            View More
+          </button>
+        </div>
 
- </main>
-<!-- main section end here -->
+        <!-- img  -->
+        <div class="border-2 mt-4 lg:mt-6">
+          <img
+            class="w-11/12 lg:w-full mx-auto"
+            src="./images/pet.webp"
+            alt=""
+          />
+        </div>
+      </section>
+      <!-- banner section end here -->
+    </header>
+    <!-- header section end here  -->
 
-<!-- footer section start here  -->
- <footer>
+    <!-- main section start here -->
+    <main></main>
+    <!-- main section end here -->
 
- </footer>
-<!-- footer section end here  -->
-
+    <!-- footer section start here  -->
+    <footer></footer>
+    <!-- footer section end here  -->
 
     <script src="./script.js"></script>
-</body>
+  </body>
 </html>
