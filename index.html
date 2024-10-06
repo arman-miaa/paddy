@@ -1,14 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PH-Assignment-6</title>  
-
+    <title>PH-Assignment-6</title> 
+     <!--Tailwind and daisyUI CDN link  -->
+     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css" rel="stylesheet" type="text/css" />
+<script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            clifford: '#da373d',
+            primary: '#0E7A81',
+          },
+          fontFamily: {
+            lato: ['Lato', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+<!-- google font -->
+ <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
     <!-- fav icon -->
      <link rel="shortcut icon" href="./images/icons8-pets-48 (1).png" type="image/x-icon">
 </head>
-<body>
+<body class="font-lato">
     
 
 
