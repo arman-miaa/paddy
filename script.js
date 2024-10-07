@@ -82,7 +82,7 @@ const likePet = (petId) => {
   const likePetImg = document.createElement('div');
   likePetImg.innerHTML = `
   
-  <div class=" p-2 gap-2">
+  <div class=" p-[10px]">
               <img class="rounded-xl w-auto" src="${petId}" alt="" />
             </div>
   
@@ -90,16 +90,96 @@ const likePet = (petId) => {
   likeImgBox.appendChild(likePetImg);
  }
 
+// modal function to display adopt details
+const displayAdoptDetails = (id) => { 
+  console.log(id);
+  fetch(`https://openapi.programming-hero.com/api/peddy/pet/${id}`)
+    .then((response) => response.json())
+    .then(details => console.log(details.petData))
+  
+  const modalBox = document.getElementById('adoptModal');
+  const modalBody = document.getElementById("modalContent");
+
+  modalBody.innerHTML = `
+  
+    <div class="border-2 p-6 space-y-4 rounded-xl">
+            <!-- img -->
+             <div class="w-full">
+              <img class="w-full object-cover" src="./images/Rectangle 1.png" alt="">
+             </div>
+             <!-- text -->
+              <div class="space-y-2">
+                <h3 class="text-xl font-bold">Mister Tartosh</h3>
+                
+           <!-- container text -->
+            <div class="border-2 flex w-8/12 py-2 justify-between items-center">
+                   <!-- left side -->
+                <div  class="space-y-2">
+  <div class="flex gap-2 items-center">
+                  <img src="./images/box-icon.png" alt="">
+                  <p>Breed: Golder retriever</p>
+                </div>
+
+                <div class="flex gap-2 items-center">
+                  <img src="./images/gender-icon.png" alt="">
+                  <p>Birth: 2024</p>
+                </div>
+                <div class="flex gap-2 items-center">
+                  <img src="./images/gender-icon.png" alt="">
+                  <p>Birth: 2024</p>
+                </div>
+                </div>
+<!-- right side -->
+               <div class="space-y-2">
+                 <div class="flex gap-2 items-center">
+                <img src="./images/bird-icon.png" alt="">
+                  <p>Gender: Female</p>
+                </div>
+
+                <div class="flex gap-2 items-center">
+                  <img src="./images/dolor-icon.png" alt="">
+                  <p>Price : 199$</p>
+                </div>
+
+               </div>
+            </div>
+
+              </div>
+              <hr class="">
+              <h3 class="text-2xl font-bold">Details Information</h3>
+              <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
+The point of using is that it has a more-or-less normal distribution of letters, as opposed to using.</p>
+          
+
+
+<button id="closeButton" class="mt-4 px-4 py-2 w-full text-green-900 bg-[#0E7A811A] rounded">Cancel</button>
+           </div>
+  
+  `;
+
+  modalBox.classList.remove('hidden');
+
+  // close modal
+  document.getElementById('closeButton').addEventListener('click', () => {
+    modalBox.classList.add('hidden');
+  })
+  
+ 
+ }
+ 
+
 
 // displayAllPets function here
 const displayAllPets = (pets) => {
-  // console.log(pets);
   const allPets = document.getElementById("all-pets");
   allPets.innerHTML = "";
 
   pets.forEach((pet) => {
-    // console.log(pet);
+
     const showAllPets = document.createElement("div");
+    // const petData = encodeURIComponent(JSON.stringify(pet));
+    // console.log(pet);
+    // console.log({pet});
     showAllPets.innerHTML = `
         
         <div class="border-2 p-6 space-y-4 rounded-xl">
@@ -136,8 +216,9 @@ const displayAllPets = (pets) => {
                <div class="flex justify-between items-center">
                 <button onclick="likePet('${pet.image}')" class=" btn  border-2 border-[#0e79814d] bg-transparent"><img " src="./images/like-icon.png" alt=""></button>
 
-                <button class="btn text-primary border-2 border-[#0e79814d] bg-transparent">Adopt</button>
-                <button class="btn text-primary border-2 border-[#0e79814d] bg-transparent">Details</button>
+                <button id="adopt-modal"  class="btn text-primary border-2 border-[#0e79814d] bg-transparent">Adopt</button>
+
+                <button onclick="displayAdoptDetails('${pet.petId}')" class="btn text-primary border-2 border-[#0e79814d] bg-transparent">Details</button>
 
                </div>
 

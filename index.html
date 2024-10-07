@@ -201,12 +201,24 @@
           </div>
 
           <!--right side cards container  -->
-          <div  id="like-img-box" class="border-2 col-span-3 min-h-32 grid grid-cols-2  rounded-xl">
+          <div  id="like-img-box" class="border-2  col-span-3 min-h-32 grid grid-cols-2  rounded-xl">
             
 
           </div>
 
         </div>
+        <!-- details modal -->
+         <div id="adoptModal" class="hidden overflow-scroll fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
+  <div class="bg-white  w-11/12 md:w-10/12 2xl:w-8/12 mt-[100px] rounded-lg p-6 relative">
+    <span id="closeModal"></span>
+    <div id="modalContent" class="space-y-4">
+      <!-- Pet details will be inserted here dynamically -->
+    </div>
+    <!-- <button id="closeButton" class="mt-4 px-4 py-2 bg-gray-200 rounded">Cancel</button> -->
+  </div>
+</div>
+
+
       </section>
     </main>
     <!-- main section end here -->
