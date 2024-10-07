@@ -210,7 +210,7 @@ const displayAllPets = (pets) => {
                <div class="flex justify-between items-center">
                 <button onclick="likePet('${pet.image}')" class=" btn  border-2 border-[#0e79814d] bg-transparent"><img " src="./images/like-icon.png" alt=""></button>
 
-                <button id="adopt-modal"  class="btn text-primary border-2 border-[#0e79814d] bg-transparent">Adopt</button>
+                <button  onclick="clickAdoptBtn(this)" id="adopt-modal"  class="btn text-primary border-2 border-[#0e79814d] bg-transparent">Adopt</button>
 
                 <button onclick="displayAdoptDetails('${pet.petId}')" class="btn text-primary border-2 border-[#0e79814d] bg-transparent">Details</button>
 
@@ -239,3 +239,37 @@ document.head.appendChild(style);
 
 buttonCategory();
 allPets();
+
+
+
+// adopt modal b ox
+function clickAdoptBtn(e) {
+  console.log("Hi Adopt");
+  e.classList.add(
+    "bg-[lightgray]",
+    "text-[gray]",
+    "border-none",
+    "disabled_button",
+    "hover:bg-[lightgray]"
+  );
+  const countdown_container = document.getElementById("countdown_container");
+  countdown_container.classList.remove("hidden");
+  countdown_container.classList.add("flex");
+  setTimeout(() => {
+    countdown_container.classList.add("hidden");
+    countdown_container.classList.remove("flex");
+    e.innerHTML = "Adopted";
+    e.disabled = true;
+  }, 3000);
+  let counter = 3;
+  const countdownElement = document.getElementById("countdown");
+
+  const interval = setInterval(() => {
+    countdownElement.textContent = counter;
+    counter--;
+
+    if (counter < 0) {
+      clearInterval(interval);
+    }
+  }, 800);
+}
