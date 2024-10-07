@@ -63,19 +63,38 @@ const displayBtn = (categorBtn) => {
 // .then((data) => displayPetByCategory(data.categories, categoryName))
 // function to get pets by category buttons
 const getPetByCategory = (categoryName) => { 
-  console.log(categoryName);
+  // console.log(categoryName);
   fetch(
     `https://openapi.programming-hero.com/api/peddy/category/${categoryName}`
   )
     .then((response) => response.json())
-    .then((data) => displayAllPets(data.data));
+    .then((data) => {
+      const pets = data.data;
+      if (pets.length === 0) {
+        document.getElementById('hidden-box').classList.remove('hidden');
+        document.getElementById('all-pets').classList.add('hidden');
+      }
+      
+      else {
+        document.getElementById('hidden-box').classList.add('hidden');
+        document.getElementById('all-pets').classList.remove('hidden');
+        displayAllPets(pets);
+
+      }
+    })
+    // .catch((error) => console.error(error));
+  
+     
+  
+  // .catch(err => console.log(err))
 
 }
 
 
+
 // displayAllPets function here
 const displayAllPets = (pets) => {
-    console.log(pets);
+    // console.log(pets);
     const allPets = document.getElementById("all-pets");
   allPets.innerHTML = '';
   
