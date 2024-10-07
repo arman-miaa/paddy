@@ -1,3 +1,7 @@
+// window.onload = () => {
+//   window.scroll(0,0,"smooth")
+// }
+
 // buttonCategory function here
 const buttonCategory = () => {
   console.log("Hello");
@@ -22,10 +26,11 @@ const allPets = () => {
 
 // displayBtn function here
 const displayBtn = (categorBtn) => {
+  const categoryBtn = document.getElementById("category-btn");
+  categorBtn.innerHTML = '';
   categorBtn.forEach((btn) => {
     // console.log(btn);
 
-    const categoryBtn = document.getElementById("category-btn");
     const showAllBtn = document.createElement("div");
     showAllBtn.innerHTML = `
         <button class="category-button h-12 w-full flex justify-center gap-2 items-center py-8 rounded-lg border-2">
@@ -41,7 +46,16 @@ const displayBtn = (categorBtn) => {
       // console.log(btn.category);
       getPetByCategory(btn.category)
 
+      document.querySelectorAll('.category-button').forEach(button => {
+        button.classList.remove('active');
+      });
+      showAllBtn.querySelector(".category-button").classList.add('active');
+
+
+
     })
+
+    
     
   });
 };
@@ -117,6 +131,19 @@ const displayAllPets = (pets) => {
 
     })
 }
+
+//  selected bacground color button
+
+const style = document.createElement('style');
+style.innerHTML = `
+.active {
+background-color: rgba(14, 122, 129, 0.1);
+border-radius: 120px;
+border: 1.5px solid rgb(14, 122, 129);
+}
+
+`;
+document.head.appendChild(style);
 
 buttonCategory();
 allPets();
