@@ -79,7 +79,7 @@ const getPetByCategory = (categoryName) => {
 const likePet = (petId) => {
   // console.log(petId);
   const likeImgBox = document.getElementById("like-img-box");
-  const likePetImg = document.createElement('div');
+  const likePetImg = document.createElement("div");
   likePetImg.innerHTML = `
   
   <div class=" p-[10px]">
@@ -88,86 +88,81 @@ const likePet = (petId) => {
   
   `;
   likeImgBox.appendChild(likePetImg);
- }
+};
 
-// modal function to display adopt details
-const displayAdoptDetails = (id) => { 
+// modal function to display  details
+const displayAdoptDetails = (id) => {
   console.log(id);
+
   fetch(`https://openapi.programming-hero.com/api/peddy/pet/${id}`)
     .then((response) => response.json())
-    .then(details => console.log(details.petData))
-  
-  const modalBox = document.getElementById('adoptModal');
-  const modalBody = document.getElementById("modalContent");
+    .then((details) => {
+      const petData = details.petData;
 
-  modalBody.innerHTML = `
-  
-    <div class="border-2 p-6 space-y-4 rounded-xl">
-            <!-- img -->
-             <div class="w-full">
-              <img class="w-full object-cover" src="./images/Rectangle 1.png" alt="">
-             </div>
-             <!-- text -->
-              <div class="space-y-2">
-                <h3 class="text-xl font-bold">Mister Tartosh</h3>
-                
-           <!-- container text -->
+      // Select the modal elements
+      const modalBox = document.getElementById("adoptModal");
+      const modalBody = document.getElementById("modalContent");
+
+      modalBody.innerHTML = `
+        <div class="border-2 bg-white mt-[200px] p-6 space-y-4 rounded-xl">
+          <!-- Image -->
+          <div class="w-full">
+            <img class="w-full object-cover rounded-xl" src="${petData.image}" alt="${petData.pet_name}">
+          </div>
+          <!-- Text -->
+          <div class="space-y-2">
+            <h3 class="text-xl font-bold">${petData.pet_name}</h3>
+            
+            <!-- Container text -->
             <div class="border-2 flex w-8/12 py-2 justify-between items-center">
-                   <!-- left side -->
-                <div  class="space-y-2">
-  <div class="flex gap-2 items-center">
+              <!-- Left side -->
+              <div class="space-y-2">
+                <div class="flex gap-2 items-center">
                   <img src="./images/box-icon.png" alt="">
-                  <p>Breed: Golder retriever</p>
-                </div>
-
-                <div class="flex gap-2 items-center">
-                  <img src="./images/gender-icon.png" alt="">
-                  <p>Birth: 2024</p>
+                  <p>Breed: ${petData.breed}</p>
                 </div>
                 <div class="flex gap-2 items-center">
                   <img src="./images/gender-icon.png" alt="">
-                  <p>Birth: 2024</p>
+                  <p>Birth: ${petData.date_of_birth}</p>
                 </div>
+                <div class="flex gap-2 items-center">
+                  <img src="./images/gender-icon.png" alt="">
+                  <p>vaccinated_status: ${petData.vaccinated_status}</p>
                 </div>
-<!-- right side -->
-               <div class="space-y-2">
-                 <div class="flex gap-2 items-center">
-                <img src="./images/bird-icon.png" alt="">
-                  <p>Gender: Female</p>
+              </div>
+              <!-- Right side -->
+              <div class="space-y-2">
+                <div class="flex gap-2 items-center">
+                  <img src="./images/bird-icon.png" alt="">
+                  <p>Gender: ${petData.gender}</p>
                 </div>
-
                 <div class="flex gap-2 items-center">
                   <img src="./images/dolor-icon.png" alt="">
-                  <p>Price : 199$</p>
+                  <p>Price: $${petData.price}</p>
                 </div>
-
-               </div>
-            </div>
-
               </div>
-              <hr class="">
-              <h3 class="text-2xl font-bold">Details Information</h3>
-              <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
-The point of using is that it has a more-or-less normal distribution of letters, as opposed to using.</p>
-          
+            </div>
+          </div>
+          <hr>
+          <h3 class="text-2xl font-bold">Details Information</h3>
+          <p>${petData.pet_details}</p>
 
+          <button id="closeButton" class="mt-4 px-4 py-2 w-full text-green-900 bg-[#0E7A811A] rounded">Cancel</button>
+        </div>
+      `;
 
-<button id="closeButton" class="mt-4 px-4 py-2 w-full text-green-900 bg-[#0E7A811A] rounded">Cancel</button>
-           </div>
-  
-  `;
+      // Show the modal
+      modalBox.classList.remove("hidden");
 
-  modalBox.classList.remove('hidden');
-
-  // close modal
-  document.getElementById('closeButton').addEventListener('click', () => {
-    modalBox.classList.add('hidden');
-  })
-  
- 
- }
- 
-
+      // Close modal on button click
+      document.getElementById("closeButton").addEventListener("click", () => {
+        modalBox.classList.add("hidden");
+      });
+    })
+    .catch((error) => {
+      console.error("Error fetching pet details:", error);
+    });
+};
 
 // displayAllPets function here
 const displayAllPets = (pets) => {
@@ -175,7 +170,6 @@ const displayAllPets = (pets) => {
   allPets.innerHTML = "";
 
   pets.forEach((pet) => {
-
     const showAllPets = document.createElement("div");
     // const petData = encodeURIComponent(JSON.stringify(pet));
     // console.log(pet);
