@@ -11,23 +11,19 @@ const buttonCategory = () => {
     .catch((err) => console.log(err));
 };
 
-
 //  all pets section function
-const allPets = () => { 
-    console.log("Allpets");
-    fetch("https://openapi.programming-hero.com/api/peddy/pets")
-        .then((response) => response.json())
-        .then((data) => displayAllPets(data.pets))
+const allPets = () => {
+  console.log("Allpets");
+  fetch("https://openapi.programming-hero.com/api/peddy/pets")
+    .then((response) => response.json())
+    .then((data) => displayAllPets(data.pets))
     .catch((err) => console.log(err));
-}
-
-
-
+};
 
 // displayBtn function here
 const displayBtn = (categorBtn) => {
   const categoryBtn = document.getElementById("category-btn");
-  categorBtn.innerHTML = '';
+  categorBtn.innerHTML = "";
   categorBtn.forEach((btn) => {
     // console.log(btn);
 
@@ -41,28 +37,23 @@ const displayBtn = (categorBtn) => {
                     `;
     categoryBtn.appendChild(showAllBtn);
 
-    showAllBtn.querySelector(".category-button").addEventListener("click", () => {
-      // console.log("Button clicked");
-      // console.log(btn.category);
-      getPetByCategory(btn.category)
+    showAllBtn
+      .querySelector(".category-button")
+      .addEventListener("click", () => {
+        // console.log("Button clicked");
+        // console.log(btn.category);
+        getPetByCategory(btn.category);
 
-      document.querySelectorAll('.category-button').forEach(button => {
-        button.classList.remove('active');
+        document.querySelectorAll(".category-button").forEach((button) => {
+          button.classList.remove("active");
+        });
+        showAllBtn.querySelector(".category-button").classList.add("active");
       });
-      showAllBtn.querySelector(".category-button").classList.add('active');
-
-
-
-    })
-
-    
-    
   });
 };
 
-// .then((data) => displayPetByCategory(data.categories, categoryName))
 // function to get pets by category buttons
-const getPetByCategory = (categoryName) => { 
+const getPetByCategory = (categoryName) => {
   // console.log(categoryName);
   fetch(
     `https://openapi.programming-hero.com/api/peddy/category/${categoryName}`
@@ -71,37 +62,45 @@ const getPetByCategory = (categoryName) => {
     .then((data) => {
       const pets = data.data;
       if (pets.length === 0) {
-        document.getElementById('hidden-box').classList.remove('hidden');
-        document.getElementById('all-pets').classList.add('hidden');
-      }
-      
-      else {
-        document.getElementById('hidden-box').classList.add('hidden');
-        document.getElementById('all-pets').classList.remove('hidden');
+        document.getElementById("hidden-box").classList.remove("hidden");
+        document.getElementById("all-pets").classList.add("hidden");
+      } else {
+        document.getElementById("hidden-box").classList.add("hidden");
+        document.getElementById("all-pets").classList.remove("hidden");
         displayAllPets(pets);
-
       }
-    })
-    // .catch((error) => console.error(error));
-  
-     
-  
+    });
+  // .catch((error) => console.error(error));
+
   // .catch(err => console.log(err))
+};
 
-}
-
+// click like button function
+const likePet = (petId) => {
+  // console.log(petId);
+  const likeImgBox = document.getElementById("like-img-box");
+  const likePetImg = document.createElement('div');
+  likePetImg.innerHTML = `
+  
+  <div class=" p-2 gap-2">
+              <img class="rounded-xl w-auto" src="${petId}" alt="" />
+            </div>
+  
+  `;
+  likeImgBox.appendChild(likePetImg);
+ }
 
 
 // displayAllPets function here
 const displayAllPets = (pets) => {
-    // console.log(pets);
-    const allPets = document.getElementById("all-pets");
-  allPets.innerHTML = '';
-  
-    pets.forEach((pet) => { 
-        // console.log(pet);
-        const showAllPets = document.createElement('div');
-        showAllPets.innerHTML = `
+  // console.log(pets);
+  const allPets = document.getElementById("all-pets");
+  allPets.innerHTML = "";
+
+  pets.forEach((pet) => {
+    // console.log(pet);
+    const showAllPets = document.createElement("div");
+    showAllPets.innerHTML = `
         
         <div class="border-2 p-6 space-y-4 rounded-xl">
             <!-- img -->
@@ -135,7 +134,7 @@ const displayAllPets = (pets) => {
               <hr>
               <!-- btn -->
                <div class="flex justify-between items-center">
-                <button class=" btn  border-2 border-[#0e79814d] bg-transparent"><img src="./images/like-icon.png" alt=""></button>
+                <button onclick="likePet('${pet.image}')" class=" btn  border-2 border-[#0e79814d] bg-transparent"><img " src="./images/like-icon.png" alt=""></button>
 
                 <button class="btn text-primary border-2 border-[#0e79814d] bg-transparent">Adopt</button>
                 <button class="btn text-primary border-2 border-[#0e79814d] bg-transparent">Details</button>
@@ -146,14 +145,13 @@ const displayAllPets = (pets) => {
            </div>
 
         `;
-        allPets.appendChild(showAllPets);
-
-    })
-}
+    allPets.appendChild(showAllPets);
+  });
+};
 
 //  selected bacground color button
 
-const style = document.createElement('style');
+const style = document.createElement("style");
 style.innerHTML = `
 .active {
 background-color: rgba(14, 122, 129, 0.1);
