@@ -26,26 +26,47 @@ const displayBtn = (categorBtn) => {
     // console.log(btn);
 
     const categoryBtn = document.getElementById("category-btn");
-    const displayBtn = document.createElement("div");
-    displayBtn.innerHTML = `
-        <button class=" h-12 w-full flex justify-center gap-2 items-center py-8 rounded-lg border-2">
+    const showAllBtn = document.createElement("div");
+    showAllBtn.innerHTML = `
+        <button class="category-button h-12 w-full flex justify-center gap-2 items-center py-8 rounded-lg border-2">
                         <img src='${btn.category_icon}' alt="">
                         <p>${btn.category}</p>
                     </button>
         
                     `;
-    categoryBtn.appendChild(displayBtn);
+    categoryBtn.appendChild(showAllBtn);
+
+    showAllBtn.querySelector(".category-button").addEventListener("click", () => {
+      // console.log("Button clicked");
+      // console.log(btn.category);
+      getPetByCategory(btn.category)
+
+    })
+    
   });
 };
 
+// .then((data) => displayPetByCategory(data.categories, categoryName))
+// function to get pets by category buttons
+const getPetByCategory = (categoryName) => { 
+  console.log(categoryName);
+  fetch(
+    `https://openapi.programming-hero.com/api/peddy/category/${categoryName}`
+  )
+    .then((response) => response.json())
+    .then((data) => displayAllPets(data.data));
+
+}
+
 
 // displayAllPets function here
-// const allPets = document.getElementById("all-pets");
 const displayAllPets = (pets) => {
     console.log(pets);
+    const allPets = document.getElementById("all-pets");
+  allPets.innerHTML = '';
+  
     pets.forEach((pet) => { 
-        console.log(pet);
-        const allPets = document.getElementById("all-pets");
+        // console.log(pet);
         const showAllPets = document.createElement('div');
         showAllPets.innerHTML = `
         
