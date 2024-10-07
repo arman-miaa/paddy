@@ -52,29 +52,29 @@ const displayAllPets = (pets) => {
         <div class="border-2 p-6 space-y-4 rounded-xl">
             <!-- img -->
              <div class="w-full">
-              <img class="w-full" src="${pet.image}" alt="">
+              <img class="w-full rounded-xl" src="${pet.image}" alt="">
              </div>
              <!-- text -->
               <div class="space-y-2">
-                <h3 class="text-xl font-bold">Mister Tartosh</h3>
+                <h3 class="text-xl font-bold">${pet.pet_name}</h3>
                 <div class="flex gap-2 items-center">
                   <img src="./images/box-icon.png" alt="">
-                  <p>Breed: Golder retriever</p>
+                  <p>Breed: ${pet.breed}</p>
                 </div>
 
                 <div class="flex gap-2 items-center">
                   <img src="./images/bird-icon.png" alt="">
-                  <p>Birth: 2024</p>
+                  <p>Birth: ${pet.date_of_birth}</p>
                 </div>
 
                 <div class="flex gap-2 items-center">
                 <img src="./images/gender-icon.png" alt="">
-                  <p>Gender: Female</p>
+                  <p>Gender: ${pet.gender}</p>
                 </div>
 
                 <div class="flex gap-2 items-center">
                   <img src="./images/dolor-icon.png" alt="">
-                  <p>Price : 199$</p>
+                  <p>Price : ${pet.price}$</p>
                 </div>
 
               </div>
