@@ -91,7 +91,7 @@ const likePet = (petId) => {
 };
 
 // modal function to display  details
-const displayAdoptDetails = (id) => {
+const displayDetails = (id) => {
   console.log(id);
 
   fetch(`https://openapi.programming-hero.com/api/peddy/pet/${id}`)
@@ -210,9 +210,9 @@ const displayAllPets = (pets) => {
                <div class="flex justify-between items-center">
                 <button onclick="likePet('${pet.image}')" class=" btn  border-2 border-[#0e79814d] bg-transparent"><img " src="./images/like-icon.png" alt=""></button>
 
-                <button  onclick="clickAdoptBtn(this)" id="adopt-modal"  class="btn text-primary border-2 border-[#0e79814d] bg-transparent">Adopt</button>
+                <button   onclick="clickAdoptBtn(this)"  class="btn text-primary border-2 border-[#0e79814d] bg-transparent">Adopt</button>
 
-                <button onclick="displayAdoptDetails('${pet.petId}')" class="btn text-primary border-2 border-[#0e79814d] bg-transparent">Details</button>
+                <button onclick="displayDetails('${pet.petId}')" class="btn text-primary border-2 border-[#0e79814d] bg-transparent">Details</button>
 
                </div>
 
@@ -240,11 +240,31 @@ document.head.appendChild(style);
 buttonCategory();
 allPets();
 
+//  sortedProducts function here
+const sortedProducts = async () => {
+  console.log('Hi sorth');
+  try {
+    const res = await getProducts(
+      "https://openapi.programming-hero.com/api/peddy/pets"
+    );
+    const data = res.pets.sort((a, b) => b.price - a.price);
+    displayProducts(data);
+    const product_container = getElement_By_Id("product_container");
+    product_container.innerHTML = "";
+  } catch (err) {
+    console.log(err);
+  }
+};
 
 
-// adopt modal b ox
+
+
+
+
+
+// adopt ===============================
+
 function clickAdoptBtn(e) {
-  console.log("Hi Adopt");
   e.classList.add(
     "bg-[lightgray]",
     "text-[gray]",
@@ -252,15 +272,18 @@ function clickAdoptBtn(e) {
     "disabled_button",
     "hover:bg-[lightgray]"
   );
+
   const countdown_container = document.getElementById("countdown_container");
   countdown_container.classList.remove("hidden");
   countdown_container.classList.add("flex");
+
   setTimeout(() => {
     countdown_container.classList.add("hidden");
     countdown_container.classList.remove("flex");
     e.innerHTML = "Adopted";
     e.disabled = true;
   }, 3000);
+
   let counter = 3;
   const countdownElement = document.getElementById("countdown");
 
