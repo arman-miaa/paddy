@@ -178,7 +178,7 @@ const displayDetails = (id) => {
 const displayAllPets = (pets) => {
   const allPets = document.getElementById("all-pets");
   const spinner = document.getElementById("spinner");
-  console.log('spinner Hi');
+  // console.log('spinner Hi');
   spinner.classList.add("flex");
   spinner.classList.remove("hidden");
   allPets.classList.add("invisible");
