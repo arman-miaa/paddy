@@ -29,6 +29,7 @@
         },
       };
     </script>
+  
 
     <!-- fontwasome link -->
     <script
@@ -108,7 +109,7 @@
         class="flex flex-col justify-center items-center text-center mt-12"
       >
         <!-- text -->
-        <div class="border-2">
+        <div class="">
           <h5 class="text-xl md:text-2xl font-medium text-text2">
             Bringing Families Together ❤️‍🔥
           </h5>
@@ -135,7 +136,7 @@
         </div>
 
         <!-- img  -->
-        <div class="border-2 mt-4 lg:mt-6">
+        <div class=" mt-4 lg:mt-6">
           <img
             class="w-11/12 lg:w-full mx-auto"
             src="./images/pet.webp"
@@ -151,7 +152,7 @@
     <main class="container mx-auto mt-10">
       <section>
         <!-- title and des -->
-        <div class="border-2 md:w-1/2 mx-auto">
+        <div class=" md:w-1/2 mx-auto">
           <h3
             id="viewMore"
             class="text-center text-2xl md:text-3xl font-bold lg:text-4xl lg:font-extrabold"
@@ -166,34 +167,12 @@
         </div>
 
         <!-- cetagory 4 btn -->
-        <div id="category-btn" class="grid grid-cols-4 gap-4 mt-10"></div>
-        <!-- <div class="grid grid-cols-4 gap-4 mt-10">
-
-                <button class="w-auto h-6 bg-blue-400 flex justify-center gap-2 items-center py-8 rounded-lg border-2">
-                    <img src="./images/logo.webp" alt="">
-                    <p>Dogs</p>
-                </button>
-
-                <div class="w-auto h-6 bg-blue-400 flex justify-center gap-2 items-center py-8 rounded-lg border-2">
-                    <img src="./images/logo.webp" alt="">
-                    <p>Dogs</p>
-                </div>
-                <div class="w-auto h-6 bg-blue-400 flex justify-center gap-2 items-center py-8 rounded-lg border-2">
-                    <img src="./images/logo.webp" alt="">
-                    <p>Dogs</p>
-                </div>
-                <div class="w-auto h-6 bg-blue-400 flex justify-center gap-2 items-center py-8 rounded-lg border-2">
-                    <img src="./images/logo.webp" alt="">
-                    <p>Dogs</p>
-                </div>
-
-               
-
-              </div> -->
+        <div id="category-btn" class="grid grid-cols-2 md:grid-cols-4 gap-4 px-4 md:px-0 mt-10"></div>
+       
 
         <!-- text and sort btn -->
-        <div class="flex justify-between items-center mt-4">
-          <h3 class="text-2xl font-bold">Best Deal For you</h3>
+        <div class="flex justify-between items-center mx-4 md:mx-0 mt-4">
+          <h3 class="text-xl font-medium md:text-2xl md:font-bold">Best Deal For you</h3>
           <button id="sortedProductBtn" onclick="sortedProducts()"
             class=" md:w-auto btn mt-2 border-none outline-none md:mt-4 md:text-lg xl:text-xl md:font-semibold xl:font-bold bg-primary px-10 hover:bg-primary text-white text-center"
           >
@@ -236,7 +215,7 @@
           </div>
 
           <!--right side cards container  -->
-          <div  id="like-img-box" class="border-2  col-span-3 min-h-32 grid grid-cols-2  rounded-xl">
+          <div  id="like-img-box" class="border-2 items-start justify-start h-auto col-span-3 grid md:grid-cols-2  rounded-xl">
             
 
           </div>
@@ -263,7 +242,7 @@
         <!--  -->
         <!-- details modal -->
          <div id="adoptModal" class="hidden overflow-scroll fixed inset-0  bg-black bg-opacity-50 flex justify-center items-center">
-  <div class="  w-11/12 md:w-6/12 2xl:w-6/12  rounded-lg p-6 relative">
+  <div class="  w-11/12 md:w-8/12 2xl:w-6/12  rounded-lg p-6 relative">
     <span id="closeModal"></span>
     <div id="modalContent" class="space-y-4">
       <!-- Pet details will be inserted here dynamically -->
@@ -285,7 +264,7 @@
           class="footer flex flex-col md:flex-row justify-between text-neutral-content p-10"
         >
           <!-- first  -->
-          <nav class="text-[#e6e6e6d4] leading-5 w-full md:w-auto border-2 flex  flex-col justify-center items-center md:items-start">
+          <nav class="text-[#e6e6e6d4] leading-5 w-full md:w-auto  flex  flex-col justify-center items-center md:items-start">
             <div class="flex items-center justify-center mb-3">
               <img class="lg:w-10" src="./images/logo.webp" alt="" />
               <a

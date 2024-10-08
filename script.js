@@ -117,45 +117,51 @@ const displayDetails = (id) => {
         <div class="border-2 bg-white mt-[200px] p-6 space-y-4 rounded-xl">
           <!-- Image -->
           <div class="w-full">
-            <img class="w-full object-cover rounded-xl" src="${petData.image}" alt="${petData.pet_name}">
+            <img class="w-full object-cover rounded-xl" src="${
+              petData.image || "Not Found"
+            }" alt="${petData.pet_name || "Not Found"}">
           </div>
           <!-- Text -->
           <div class="space-y-2">
-            <h3 class="text-xl font-bold">${petData.pet_name}</h3>
+            <h3 class="text-xl font-bold">${
+              petData.pet_name || "Not Found"
+            }</h3>
             
             <!-- Container text -->
-            <div class="border-2 flex w-8/12 py-2 justify-between items-center">
+            <div class="  flex flex-col md:flex-row w-full md:w-11/12  lg:w-9/12 py-2 md:justify-between md:items-center">
               <!-- Left side -->
               <div class="space-y-2">
                 <div class="flex gap-2 items-center">
                   <img src="./images/box-icon.png" alt="">
-                  <p>Breed: ${petData.breed}</p>
+                  <p>Breed: ${petData.breed || "Not Found"}</p>
                 </div>
                 <div class="flex gap-2 items-center">
                   <img src="./images/gender-icon.png" alt="">
-                  <p>Birth: ${petData.date_of_birth}</p>
+                  <p>Birth: ${petData.date_of_birth || "Not Found"}</p>
                 </div>
                 <div class="flex gap-2 items-center">
                   <img src="./images/gender-icon.png" alt="">
-                  <p>vaccinated_status: ${petData.vaccinated_status}</p>
+                  <p>vaccinated_status: ${
+                    petData.vaccinated_status || "Not Found"
+                  }</p>
                 </div>
               </div>
               <!-- Right side -->
               <div class="space-y-2">
                 <div class="flex gap-2 items-center">
                   <img src="./images/bird-icon.png" alt="">
-                  <p>Gender: ${petData.gender}</p>
+                  <p>Gender: ${petData.gender || "Not Found"}</p>
                 </div>
                 <div class="flex gap-2 items-center">
                   <img src="./images/dolor-icon.png" alt="">
-                  <p>Price: $${petData.price}</p>
+                  <p>Price: $${petData.price || "Not Found"}</p>
                 </div>
               </div>
             </div>
           </div>
           <hr>
           <h3 class="text-2xl font-bold">Details Information</h3>
-          <p>${petData.pet_details}</p>
+          <p>${petData.pet_details || "Not Found"}</p>
 
           <button id="closeButton" class="mt-4 px-4 py-2 w-full text-green-900 bg-[#0E7A811A] rounded">Cancel</button>
         </div>
