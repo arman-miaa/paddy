@@ -193,40 +193,45 @@ const displayAllPets = (pets) => {
         <div class="border-2 p-6 space-y-4 rounded-xl">
             <!-- img -->
              <div class="w-full">
-              <img class="w-full rounded-xl" src="${pet.image}" alt="">
+              <img class="w-full rounded-xl" src="${
+                pet.image || "Not Found"
+              }" alt="">
              </div>
              <!-- text -->
               <div class="space-y-2">
-                <h3 class="text-xl font-bold">${pet.pet_name}</h3>
+                <h3 class="text-xl font-bold">${
+                  pet.pet_name || "Not Found"
+                }</h3>
                 <div class="flex gap-2 items-center">
                   <img src="./images/box-icon.png" alt="">
-                  <p>Breed: ${pet.breed}</p>
+                  <p>Breed: ${pet.breed || "Not Found"}</p>
                 </div>
 
                 <div class="flex gap-2 items-center">
                   <img src="./images/bird-icon.png" alt="">
-                  <p>Birth: ${pet.date_of_birth}</p>
+                  <p>Birth: ${pet.date_of_birth || "Not Found"}</p>
                 </div>
 
                 <div class="flex gap-2 items-center">
                 <img src="./images/gender-icon.png" alt="">
-                  <p>Gender: ${pet.gender}</p>
+                  <p>Gender: ${pet.gender || "Not Found"}</p>
                 </div>
 
                 <div class="flex gap-2 items-center">
                   <img src="./images/dolor-icon.png" alt="">
-                  <p>Price : ${pet.price}$</p>
+                  <p>Price : ${pet.price || "Not Found"}$</p>
                 </div>
 
               </div>
               <hr>
               <!-- btn -->
                <div class="flex justify-between items-center">
-                <button onclick="likePet('${pet.image}')" class=" btn  border-2 border-[#0e79814d] bg-transparent"><img " src="./images/like-icon.png" alt=""></button>
+                <button onclick="likePet('${pet.image || "Not Found"}')" class=" btn  border-2 border-[#0e79814d] bg-transparent"><img " src="./images/like-icon.png" alt=""></button>
 
                 <button   onclick="clickAdoptBtn(this)"  class="btn text-primary border-2 border-[#0e79814d] bg-transparent">Adopt</button>
 
-                <button onclick="displayDetails('${pet.petId}')" class="btn text-primary border-2 border-[#0e79814d] bg-transparent">Details</button>
+                <button onclick="displayDetails('${
+                  pet.petId || "Not Found"}')" class="btn text-primary border-2 border-[#0e79814d] bg-transparent">Details</button>
 
                </div>
 
