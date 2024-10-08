@@ -177,14 +177,17 @@ const displayDetails = (id) => {
 // displayAllPets function here
 const displayAllPets = (pets) => {
   const allPets = document.getElementById("all-pets");
-  allPets.innerHTML = "";
+  const spinner = document.getElementById("spinner");
+  console.log('spinner Hi');
+  spinner.classList.add("flex");
+  spinner.classList.remove("hidden");
 
-  pets.forEach((pet) => {
-    const showAllPets = document.createElement("div");
-    // const petData = encodeURIComponent(JSON.stringify(pet));
-    // console.log(pet);
-    // console.log({pet});
-    showAllPets.innerHTML = `
+  setTimeout(() => {
+
+    allPets.innerHTML = "";
+    pets.forEach((pet) => {
+      const showAllPets = document.createElement("div");
+      showAllPets.innerHTML = `
         
         <div class="border-2 p-6 space-y-4 rounded-xl">
             <!-- img -->
@@ -230,8 +233,16 @@ const displayAllPets = (pets) => {
            </div>
 
         `;
-    allPets.appendChild(showAllPets);
-  });
+      allPets.appendChild(showAllPets);
+    });
+
+
+    // hide spinner after loading
+    spinner.classList.add('hidden');
+    spinner.classList.remove('flex');
+  }, 2000);
+
+  
 };
 
 
@@ -239,7 +250,7 @@ const displayAllPets = (pets) => {
 function sortedProducts() {
   console.log("Sort button clicked");
   const data = pet.sort((a, b) => b.price - a.price);
-  console.log(data);
+  // console.log(data);
   displayAllPets(data)
   
 }
