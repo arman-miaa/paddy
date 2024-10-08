@@ -181,6 +181,7 @@ const displayAllPets = (pets) => {
   console.log('spinner Hi');
   spinner.classList.add("flex");
   spinner.classList.remove("hidden");
+  allPets.classList.add("invisible");
 
   setTimeout(() => {
 
@@ -240,6 +241,7 @@ const displayAllPets = (pets) => {
     // hide spinner after loading
     spinner.classList.add('hidden');
     spinner.classList.remove('flex');
+    allPets.classList.remove("invisible");
   }, 2000);
 
   
@@ -281,7 +283,7 @@ allPets();
 
 
 // adopt ===============================
-
+let interval;
 function clickAdoptBtn(e) {
   e.classList.add(
     "bg-[lightgray]",
@@ -291,28 +293,35 @@ function clickAdoptBtn(e) {
     "hover:bg-[lightgray]"
   );
 
-  const countdown_container = document.getElementById("countdown_container");
-  countdown_container.classList.remove("hidden");
-  countdown_container.classList.add("flex");
-
-  setTimeout(() => {
-    countdown_container.classList.add("hidden");
-    countdown_container.classList.remove("flex");
-    e.innerHTML = "Adopted";
-    e.disabled = true;
-  }, 3000);
+  const countdownBox = document.getElementById("countdown_container");
+  countdownBox.classList.remove("hidden");
+  countdownBox.classList.add("flex");
 
   let counter = 3;
-  const countdownElement = document.getElementById("countdown");
+  const counterPoint = document.getElementById("countdown");
+  counterPoint.textContent = counter;
 
-  const interval = setInterval(() => {
-    countdownElement.textContent = counter;
+  if (interval) {
+    clearInterval(interval);
+  }
+
+  interval = setInterval(() => {
     counter--;
+    counterPoint.textContent = counter;
 
-    if (counter < 0) {
-      clearInterval(interval);
-    }
-  }, 800);
-}
+     if (counter <= 1) {
+            clearInterval(interval); 
+            setTimeout(() => {
+                countdownBox.classList.add("hidden");
+                countdownBox.classList.remove("flex");
+                e.innerHTML = "Adopted";
+                e.disabled = true;
+            }, 1000); 
+        }
+    }, 1000); 
+
+  }
+
+
 
 
