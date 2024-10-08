@@ -1,234 +1,249 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="corporate">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-     <!--Tailwind and daisyUI CDN link  -->
-    <link
-      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.12/dist/full.min.css"
-      rel="stylesheet"
-      type="text/css"
-    />
+    <title>Peddy Website UI/UX design </title>
+    <link rel="icon" type="image/png" href="./images/logo.webp">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            colors: {
-              clifford: "#da373d",
-              primary: "rgb(14, 122, 129);",
-              text1: " rgb(19, 19, 19)",
-              text2: "rgba(19, 19, 19, 0.7);",
-              text3: " rgba(255, 255, 255, 0.6);",
-            },
-            fontFamily: {
-              lato: ["Lato", "sans-serif"],
-            },
-          },
-        },
-      };
-    </script>
-
-    <!-- fontwasome link -->
-    <script
-      src="https://kit.fontawesome.com/1be1fc140b.js"
-      crossorigin="anonymous"
-    ></script>
-    <!-- google font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-      href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
-      rel="stylesheet"
-    />
-    <!-- fav icon -->
-    <link
-      rel="shortcut icon"
-      href="./images/icons8-pets-48 (1).png"
-      type="image/x-icon"
-    />
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
-<body>
-         <div id="adoptModal" class="  inset-0  flex justify-center items-center">
-  <div class="bg-white w-11/12 md:w-1/2 rounded-lg p-6 relative">
-    <span id="closeModal" class="absolute top-2 right-4 cursor-pointer text-xl font-bold"></span>
-    <div id="modalContent" class="space-y-4">
-      <!-- Pet details will be inserted here dynamically -->
-       <div class="border-2 p-6 space-y-4 rounded-xl">
-            <!-- img -->
-             <div class="w-full">
-              <img class="w-full" src="./images/Rectangle 1.png" alt="">
-             </div>
-             <!-- text -->
-              <div class="space-y-2">
-                <h3 class="text-xl font-bold">Mister Tartosh</h3>
-                
-           <!-- container text -->
-            <div class="border-2 flex w-8/12 py-2 justify-between items-center">
-                   <!-- left side -->
-                <div  class="space-y-2">
-  <div class="flex gap-2 items-center">
-                  <img src="./images/box-icon.png" alt="">
-                  <p>Breed: Golder retriever</p>
-                </div>
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    btn_bg: "#0E7A81",
+                    nav_bg: 'rgb(249, 247, 243)',
+                    body_bg: "rgb(255, 255, 255)"
+                },
+                backgroundImage: {
+                    'custom-gradient': 'linear-gradient(90.21deg, #ee8f12 -5.91%, #f86300 111.58%)',
+                },
+            }
+        }
+    }
+</script>
+<style>
+    .lato {
+        font-family: "Lato", sans-serif;
+        font-optical-sizing: auto;
+        font-weight: 500;
+        font-style: normal;
+    }
+</style>
 
-                <div class="flex gap-2 items-center">
-                  <img src="./images/gender-icon.png" alt="">
-                  <p>Birth: 2024</p>
-                </div>
-                <div class="flex gap-2 items-center">
-                  <img src="./images/gender-icon.png" alt="">
-                  <p>Birth: 2024</p>
-                </div>
-                </div>
-<!-- right side -->
-               <div class="space-y-2">
-                 <div class="flex gap-2 items-center">
-                <img src="./images/bird-icon.png" alt="">
-                  <p>Gender: Female</p>
-                </div>
 
-                <div class="flex gap-2 items-center">
-                  <img src="./images/dolor-icon.png" alt="">
-                  <p>Price : 199$</p>
-                </div>
+<body class="lato">
 
-               </div>
+    <header id="intro">
+        <!-- navbar start here -->
+        <div class="navbar bg-base-100 sticky top-0 left-0 z-20 shadow px-5">
+            <div class="navbar-start">
+                <div class="dropdown">
+                    <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h8m-8 6h16" />
+                        </svg>
+                    </div>
+                    <ul tabindex="0"
+                        class="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                        <li><a class="capitalize" href="#intro">Home</a></li>
+                        <li><a class="capitalize" href="#category_container">Shop</a></li>
+                        <li><a class="capitalize">Contact</a></li>
+
+                    </ul>
+                </div>
+                <a href="#intro"
+                    class="btn btn-ghost text-xl lato  flex justify-center items-center cursor-pointer capitalize ">
+                    <img src="./images/logo.webp" alt="" class="w-[30px] h-[30px]   rounded ">
+                    <span>Peddy</span>
+                </a>
+            </div>
+            <div class="navbar-center hidden lg:flex">
+                <ul class="menu menu-horizontal px-1">
+
+                    <li><a class="capitalize" href="#intro">Home</a></li>
+                    <li><a class="capitalize" href="#category_container">Shop</a></li>
+                    <li><a class="capitalize">Contact</a></li>
+                </ul>
+            </div>
+            <div class="navbar-end mr-5">
+                <a
+                    class="border-[2px] rounded-full p-4 w-[30px] h-[30px] flex justify-center items-center cursor-pointer">
+                    <i class="fa-regular fa-user "></i>
+                </a>
+            </div>
+        </div>
+        <!-- navbar end here -->
+        <!-- hero section start here -->
+        <div class="hero  min-h-screen bg-transparent">
+            <div class="hero-content text-center">
+                <div class="w-full  md:w-[80%]  flex justify-center items-center flex-col gap-3 my-6">
+                    <p class="text-[16px]  text-[#13131399]">Bringing Families Together ❤️‍🔥 </p>
+                    <h1 class="text-4xl font-bold w-[100%] md:w-[70%] ">
+                        Your Path to Adoption <br> Starts Here</h1>
+                    <p class=" w-[95%] md:w-[80%] text-center capitalize lato text-[14px] text-[#13131399]">
+                        Explore the joy of adopting a pet and give a loving home to an animal in need. Each pet has its
+                        unique charm and
+                        story, waiting to be discovered by you.
+                    </p>
+                    <a href="#products" class="text-[white] lato  rounded py-1 px-3 bg-btn_bg">View More</a>
+                    <img src="./images/pet.webp" alt="" class="mt-[0px]">
+                </div>
+            </div>
+        </div>
+        <!-- hero section end here  -->
+    </header>
+
+
+
+    <!-- categories section start here -->
+    <section class="w-full flex justify-center items-center flex-col  lato my-[50px] p-5 relative">
+
+        <!-- details popup -->
+        <div class="absolute w-full h-[120vh] bg-[rgba(0,0,0,0.7)] z-10 top-[100px] hidden   justify-center items-center p-10"
+            id="details_container">
+            <!-- here will be details  dynamic contents here  -->
+        </div>
+        <!-- details popup -->
+        <!-- count  modal -->
+        <div class="absolute z-10 w-full h-[130vh] bg-[rgba(0,0,0,0.7)]  justify-center items-center top-0 hidden"
+            id="countdown_container">
+
+            <div
+                class="card bg-neutral text-neutral-content w-96  h-[300px] bg-[white] text-[black] transform translate-y-[30%]">
+                <div class="card-body items-center text-center">
+                    <img src="./images/cat.png" alt="" class="w-[50px] h-[50px] object-cover rounded-full border-[2px]">
+                    <h2 class="card-title">Congrates!</h2>
+                    <p>adoption proccess is for your pet !</p>
+                    <p id="countdown" class="text-3xl font-bold ">0</p>
+                </div>
+            </div>
+        </div>
+        <!--count  modal  -->
+        <div class="w-[95%] md:w-[80%] flex justify-center items-center flex-col gap-5">
+            <h1 class="text-3xl md:text-5xl font-bold text-center capitalize lato">
+                Adopt Your Best Friend
+            </h1>
+            <p class="w-[100%] md:w-[80%] text-center capitalize lato text-[16px] text-[#13131399]">
+                Explore the joy of adopting a pet and give a loving home to an animal in need. Each pet has its unique
+                charm and
+                story, waiting to be discovered by you.
+            </p>
+        </div>
+
+        <!-- category buttons  -->
+        <ul class="flex justify-around items-center gap-8 flex-wrap my-4  w-[80%]" id="category_container">
+            <!-- <li
+               dynamic categories here 
+            </li> -->
+        </ul>
+        <!-- category buttons  -->
+
+        <div class="w-full md:w-[80%]  flex justify-between items-center  p-3 my-6">
+            <h2 class="font-bold">Best Deal For you</h2>
+            <button class="text-[white] lato  rounded py-1 px-3 bg-btn_bg capitalize" id="sortedProduct"
+                onclick="sortedProducts()">Sorted by price</button>
+        </div>
+        <!-- cartssssssssss -->
+
+        <div class="flex flex-col md:flex-row justify-center  items-start gap-2 w-full " id="products">
+            <!-- loader start-->
+            <div id="spinner"
+                class="hidden text-center  w-[80%] h-[200px] transform translate-x-[0%] md:translate-x-[30%]  justify-center items-center ">
+                <span class="loading loading-bars loading-xs "></span>
+                <span class="loading loading-bars loading-sm "></span>
+                <span class="loading loading-bars loading-md "></span>
+                <span class="loading loading-bars loading-lg "></span>
+            </div>
+            <!-- loader end here -->
+            <div class=" flex justify-center items-start flex-wrap gap-3 w-full md:w-[65%] p-2" id="product_container">
+                <!-- dynamic content here  ,,,, dynamic products  cards,,,,,-->
             </div>
 
-              </div>
-              <hr class="">
-              <h3 class="text-2xl font-bold">Details Information</h3>
-              <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
-The point of using is that it has a more-or-less normal distribution of letters, as opposed to using.</p>
-          
-
-
-<button id="closeButton" class="mt-4 px-4 py-2 w-full text-green-900 bg-[#0E7A811A] rounded">Cancel</button>
-           </div>
-    </div>
-  </div>
-</div>
-
-<!-- Open the modal using ID.showModal() method -->
-<button class="btn" onclick="my_modal_1.showModal()">open modal</button>
-<dialog id="my_modal_1" class="modal">
-  <div class="modal-box">
-     <div class="border-2 p-6 space-y-4 rounded-xl">
-            <!-- img -->
-             <div class="w-full">
-              <img class="w-full" src="./images/Rectangle 1.png" alt="">
-             </div>
-             <!-- text -->
-              <div class="space-y-2">
-                <h3 class="text-xl font-bold">Mister Tartosh</h3>
-                
-           <!-- container text -->
-            <div class="border-2 flex w-8/12 py-2 justify-between items-center">
-                   <!-- left side -->
-                <div  class="space-y-2">
-  <div class="flex gap-2 items-center">
-                  <img src="./images/box-icon.png" alt="">
-                  <p>Breed: Golder retriever</p>
+            <!-- gelary start -->
+            <div class=" h-max p-5 w-full md:w-[30%]  mt-3 border flex justify-start items-start ">
+                <div class="flex justify-between items-start flex-wrap  w-full gap-3 " id="photoContainer">
+                    <!-- dynamic photo gallery -->
                 </div>
-
-                <div class="flex gap-2 items-center">
-                  <img src="./images/gender-icon.png" alt="">
-                  <p>Birth: 2024</p>
-                </div>
-                <div class="flex gap-2 items-center">
-                  <img src="./images/gender-icon.png" alt="">
-                  <p>Birth: 2024</p>
-                </div>
-                </div>
-<!-- right side -->
-               <div class="space-y-2">
-                 <div class="flex gap-2 items-center">
-                <img src="./images/bird-icon.png" alt="">
-                  <p>Gender: Female</p>
-                </div>
-
-                <div class="flex gap-2 items-center">
-                  <img src="./images/dolor-icon.png" alt="">
-                  <p>Price : 199$</p>
-                </div>
-
-               </div>
             </div>
-
-              </div>
-              <hr class="">
-              <h3 class="text-2xl font-bold">Details Information</h3>
-              <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. 
-The point of using is that it has a more-or-less normal distribution of letters, as opposed to using.</p>
-          
-
-
-<button id="closeButton" class="mt-4 px-4 py-2 w-full text-green-900 bg-[#0E7A811A] rounded">Cancel</button>
-           </div>
-  
-  </div>
+            <!-- gelary end -->
+        </div>
+        <!-- cartssssssssss -->
+    </section>
+    <!-- categories secion end here -->
 
 
 
+    <!-- footer -->
+    <footer class="footer bg-neutral text-neutral-content p-10 bg-[rgb(19, 19, 19)]">
+        <nav>
+            <a href="#intro"
+                class=" text-xl lato  flex justify-center items-center  gap-4 my-3 cursor-pointer capitalize ">
+                <img src="./images/logo.webp" alt="" class="w-[30px] h-[30px] object-cover ">
+                <span>Peddy</span>
+            </a>
 
-</dialog>
+            <a class="link link-hover text-[gray]" href="https://www.google.com/maps/place/Tif,+Makkah,+Saudi+Arabia"
+                target="_blank">
+                <b>Location</b>: Tif Makkah, Saudi Arabia
+            </a>
+            <a class="link link-hover text-[gray]" href="tel:+966509325731">
+                <b>Phone</b>: +966509325731
+            </a>
+            <a class="link link-hover text-[gray]" href="mailto:kawsarfiroz11@gmail.com">
+                <b>Email</b>: kawsarfiroz11@gmail.com
+            </a>
+
+            <a class="link link-hover text-[gray]"><b>Openings hours:</b> 9.00 AM - 5.00 PM</a>
+
+            <div class="space-x-4 ">
+                <a href="https://www.facebook.com/people/Kawsar-Firoz/pfbid0qkLqK4hQtyrPSWwm6GJPU76kYKDrgYrXDyrnEocrTM9WPcVmbg2PDpApDaAYa45jl/"
+                    target="_blank" class="text-blue-600 text-4xl hover:text-blue-800 transition">
+                    <i class="fab fa-facebook"></i>
+                </a>
+                <a href="#" class="text-3xl text-[lightgray]">
+                    <i class="fa-solid fa-x "></i>
+                </a>
+                <a href="#" target="_blank" class="text-red-600 text-4xl hover:text-red-800 transition">
+                    <i class="fab fa-youtube "></i>
+                </a>
+                <a href="#" target="_blank" class="text-pink-600 text-4xl hover:text-pink-800 transition">
+                    <i class="fab fa-instagram"></i>
+                </a>
+            </div>
+        </nav>
+        <nav>
+            <h6 class="footer-title capitalize">Usefull Links</h6>
+            <a href="#intro" class="link link-hover">Home </a>
+            <a href="#category_container" class="link link-hover">About </a>
+            <a href="#category_container" class="link link-hover">Animal</a>
+            <a href="#category_container" class="link link-hover">Foundation</a>
+            <a href="#category_container" class="link link-hover">Contact</a>
+        </nav>
+        <nav>
+            <h6 class="footer-title">Drop A Message </h6>
+            <button class="text-[white] lato  rounded py-2 px-3 bg-btn_bg w-[200px]">Subscribe</button>
+            <input type="text" placeholder="Type here" class="py-2 rounded input-bordered w-[200px] px-1" />
+        </nav>
+    </footer>
+    <!-- footer -->
 
 
-
-
-<section>
-    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Minus fugiat totam officia odit facere accusamus quis aspernatur ea tenetur enim voluptates, facilis unde placeat voluptatibus eligendi dolorum dolorem, sed qui porro eum. Rerum error consectetur autem sed, asperiores magni recusandae, vero ducimus labore nobis perferendis. Voluptatem porro, id deleniti facilis at voluptatibus saepe natus aliquid explicabo quisquam, incidunt repudiandae dicta illo quod fugit optio debitis praesentium consequuntur! Voluptate dolores tenetur id dignissimos voluptates? Maiores quod cupiditate alias vitae, quam, consectetur excepturi quo exercitationem illum est itaque. Ea, reiciendis aperiam facere corporis non blanditiis iure odio velit eius vel itaque ipsum nobis? Nostrum ipsam quia facere necessitatibus. Praesentium, facilis illo sunt ducimus placeat atque id. Fugiat laboriosam vel sed minima debitis nesciunt corporis. Sit repudiandae beatae aliquam ratione alias velit sunt aut optio amet nulla exercitationem, hic magnam, dicta, eum fugit vel labore odio harum. Officiis, nobis laborum id consequuntur sapiente, animi architecto, accusantium neque provident eos cumque. In libero dolor cupiditate ut nobis officia commodi architecto tempore, harum rerum optio veniam praesentium doloribus? Quo neque eos qui autem delectus numquam quis sed tenetur consequuntur hic consequatur illum accusantium eligendi ullam, totam voluptate, soluta distinctio tempore quasi aspernatur facilis! Maxime dolor aperiam in reprehenderit eius eligendi exercitationem accusantium, doloremque, repellendus ut sapiente magni debitis beatae nesciunt quae optio! Totam debitis, minima ipsam, sunt rerum libero fuga voluptas amet enim perspiciatis expedita placeat. Odio recusandae facere, doloremque deleniti voluptate unde corporis, temporibus asperiores aperiam at modi iste. Dicta aut numquam, at quisquam recusandae explicabo animi officiis fuga sequi autem? Harum saepe error soluta non suscipit rem praesentium placeat quis sunt modi distinctio alias aspernatur numquam, eveniet pariatur voluptas veritatis? Animi a, ex reiciendis quam illo accusantium est quidem perferendis! Quia, placeat repellendus laudantium ipsam necessitatibus eveniet exercitationem repellat dolore! Recusandae iure distinctio natus accusamus eligendi laborum fugit consequatur, facilis voluptate odit molestias, officiis voluptatem alias accusantium ducimus nisi? Pariatur sit deserunt, error quos illo ab, quas veritatis magni odio iure ducimus ad totam. Molestiae, nostrum?
-</section>
-       <!--  -->
-        <!-- details modal -->
-         <div id="adoptModal" class="hidden overflow-scroll fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center">
-  <div class="bg-white  w-11/12 md:w-10/12 2xl:w-8/12 mt-[100px] rounded-lg p-6 relative">
-    <span id="closeModal"></span>
-    <div id="modalContent" class="space-y-4">
-      <!-- Pet details will be inserted here dynamically -->
-    </div>
-    <!-- <button id="closeButton" class="mt-4 px-4 py-2 bg-gray-200 rounded">Cancel</button> -->
-  </div>
-</div> 
-<!--  -->
-    <script>
-        onclick="displayAdoptDetails('${pet.petId}')"
-        
-// adopt modal b ox
-// function clickAdoptBtn(e) {
-//   console.log(e);
-//   console.log("Hi Adopt");
-//   e.classList.add(
-//     "bg-[lightgray]",
-//     "text-[gray]",
-//     "border-none",
-//     "disabled_button",
-//     "hover:bg-[lightgray]"
-//   );
-//   const countdown_container = document.getElementById("countdown_container");
-//   countdown_container.classList.remove("hidden");
-//   countdown_container.classList.add("flex");
-//   setTimeout(() => {
-//     countdown_container.classList.add("hidden");
-//     countdown_container.classList.remove("flex");
-//     e.innerHTML = "Adopted";
-//     e.disabled = true;
-//   }, 3000);
-//   let counter = 3;
-//   const countdownElement = document.getElementById("countdown");
-
-//   const interval = setInterval(() => {
-//     countdownElement.textContent = counter;
-//     counter--;
-
-//     if (counter < 0) {
-//       clearInterval(interval);
-//     }
-//   }, 800);
-// }
-    </script>
+    <!-- javascript file links -->
+    <script src="index.js"></script>
 </body>
+
 </html>

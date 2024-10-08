@@ -12,13 +12,23 @@ const buttonCategory = () => {
 };
 
 //  all pets section function
+let pet = [];
 const allPets = () => {
   console.log("Allpets");
   fetch("https://openapi.programming-hero.com/api/peddy/pets")
     .then((response) => response.json())
-    .then((data) => displayAllPets(data.pets))
+    .then((data) => {
+      pet = data.pets;
+      displayAllPets(pet)
+    })
     .catch((err) => console.log(err));
-};
+
+}
+    
+
+      
+
+
 
 // displayBtn function here
 const displayBtn = (categorBtn) => {
@@ -224,6 +234,17 @@ const displayAllPets = (pets) => {
   });
 };
 
+
+// ============sort  
+function sortedProducts() {
+  console.log("Sort button clicked");
+  const data = pet.sort((a, b) => b.price - a.price);
+  console.log(data);
+  displayAllPets(data)
+  
+}
+
+
 //  selected bacground color button
 
 const style = document.createElement("style");
@@ -241,20 +262,6 @@ buttonCategory();
 allPets();
 
 //  sortedProducts function here
-const sortedProducts = async () => {
-  console.log('Hi sorth');
-  try {
-    const res = await getProducts(
-      "https://openapi.programming-hero.com/api/peddy/pets"
-    );
-    const data = res.pets.sort((a, b) => b.price - a.price);
-    displayProducts(data);
-    const product_container = getElement_By_Id("product_container");
-    product_container.innerHTML = "";
-  } catch (err) {
-    console.log(err);
-  }
-};
 
 
 
@@ -296,3 +303,5 @@ function clickAdoptBtn(e) {
     }
   }, 800);
 }
+
+
