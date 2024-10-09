@@ -199,7 +199,7 @@ const displayAllPets = (pets) => {
       const showAllPets = document.createElement("div");
       showAllPets.innerHTML = `
         
-        <div class="border-2 p-6 space-y-4 rounded-xl">
+        <div class="border-2  p-6 space-y-4 rounded-xl">
             <!-- img -->
              <div class="w-full">
               <img class="w-full rounded-xl" src="${
@@ -228,19 +228,23 @@ const displayAllPets = (pets) => {
 
                 <div class="flex gap-2 items-center">
                   <img src="./images/dolor-icon.png" alt="">
-                  <p>Price : ${pet.price || "Not Found"}$</p>
+                  <p>Price : ${pet.price ? `${pet.price}$` : "Not Found"}</p>
+
                 </div>
 
               </div>
               <hr>
               <!-- btn -->
                <div class="flex justify-between items-center">
-                <button onclick="likePet('${pet.image || "Not Found"}')" class=" btn  border-2 border-[#0e79814d] bg-transparent"><img " src="./images/like-icon.png" alt=""></button>
+                <button onclick="likePet('${
+                  pet.image || "Not Found"
+                }')" class=" btn lg:p-0 lg:px-2 xl:px-4  border-2 border-[#0e79814d] bg-transparent"><img " src="./images/like-icon.png" alt=""></button>
 
-                <button   onclick="clickAdoptBtn(this)"  class="btn text-primary border-2 border-[#0e79814d] bg-transparent">Adopt</button>
+                <button   onclick="clickAdoptBtn(this)"  class="btn text-primary lg:p-0 lg:px-2 xl:px-3 border-2 border-[#0e79814d] bg-transparent">Adopt</button>
 
                 <button onclick="displayDetails('${
-                  pet.petId || "Not Found"}')" class="btn text-primary border-2 border-[#0e79814d] bg-transparent">Details</button>
+                  pet.petId || "Not Found"
+                }')" class="btn text-primary lg:p-0 lg:px-2 xl:px-3 border-2 border-[#0e79814d] bg-transparent">Details</button>
 
                </div>
 
