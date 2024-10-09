@@ -9,13 +9,14 @@ Peddy - Pet Adoption Platform is an interactive web application created to strea
 - ⏳ Loading Spinner: Displays a loading spinner while fetching data to enhance user experience during loading times.
 - 🛒 Adopt pets with a countdown confirmation
 - 📱 Fully responsive design for mobile and tablat device
-- 💾 Saves adoption history locally
+- 🧩 Category Filter: Dynamically filter pets by specific categories
 
 ## ES6 Features Used 🛠️
 - `let` and `const` for block-scoped variables
 - Arrow functions (`=>`)
-- Template literals for dynamic HTML content
-- Destructuring for handling API responses
+- Template literals for dynamic HTML content  
+- Array Iteration and Sorting: Implemented forEach for array traversal and sort() for organizing data efficiently.
+
 - `fetch` API for asynchronous data loading
 
 ## Live Link 🌐
