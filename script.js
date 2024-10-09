@@ -3,6 +3,7 @@
 // }
 
 // buttonCategory function here
+
 const buttonCategory = () => {
   console.log("Hello");
   fetch("https://openapi.programming-hero.com/api/peddy/categories")
@@ -13,6 +14,7 @@ const buttonCategory = () => {
 
 //  all pets section function
 let pet = [];
+let currentFilteredPets = [];
 const allPets = () => {
   console.log("Allpets");
   fetch("https://openapi.programming-hero.com/api/peddy/pets")
@@ -71,6 +73,7 @@ const getPetByCategory = (categoryName) => {
     .then((response) => response.json())
     .then((data) => {
       const pets = data.data;
+      currentFilteredPets = pets;
       if (pets.length === 0) {
         document.getElementById("hidden-box").classList.remove("hidden");
         document.getElementById("all-pets").classList.add("hidden");
@@ -255,18 +258,30 @@ const displayAllPets = (pets) => {
     allPets.classList.remove("invisible");
   }, 2000);
 
-  
-};
 
+}
 
 // ============sort  
 function sortedProducts() {
   console.log("Sort button clicked");
-  const data = pet.sort((a, b) => b.price - a.price);
+
+  let dataToSort;
+  if (currentFilteredPets.length > 0) {
+    dataToSort = currentFilteredPets.sort((a, b) => b.price - a.price);
+  }
+  else {
+    dataToSort = pet.sort((a, b) => b.price - a.price)
+  }
+
+  // const data = pet.sort((a, b) => b.price - a.price);
   // console.log(data);
-  displayAllPets(data)
+  displayAllPets(dataToSort)
   
 }
+  
+
+
+
 
 
 //  selected bacground color button
