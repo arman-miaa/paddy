@@ -3,6 +3,7 @@
 // }
 
 // buttonCategory function here
+document.getElementById("hidden-box").classList.add("hidden");
 
 const buttonCategory = () => {
   console.log("Hello");
@@ -66,6 +67,15 @@ const displayBtn = (categorBtn) => {
 
 // function to get pets by category buttons
 const getPetByCategory = (categoryName) => {
+  const spinner = document.getElementById("spinner");
+  const hiddenBox = document.getElementById("hidden-box");
+  const allPets = document.getElementById("all-pets");
+
+  // spinner show
+  spinner.classList.remove("hidden");
+  allPets.classList.add("hidden");
+  hiddenBox.classList.add("hidden");
+
   // console.log(categoryName);
   fetch(
     `https://openapi.programming-hero.com/api/peddy/category/${categoryName}`
@@ -74,15 +84,25 @@ const getPetByCategory = (categoryName) => {
     .then((data) => {
       const pets = data.data;
       currentFilteredPets = pets;
+
       if (pets.length === 0) {
-        document.getElementById("hidden-box").classList.remove("hidden");
-        document.getElementById("all-pets").classList.add("hidden");
+        setTimeout(() => {
+          spinner.classList.add("hidden");
+          hiddenBox.classList.remove("hidden");
+          allPets.classList.add("hidden");
+        }, 3000);
       } else {
-        document.getElementById("hidden-box").classList.add("hidden");
-        document.getElementById("all-pets").classList.remove("hidden");
-        displayAllPets(pets);
+        spinner.classList.add("hidden");
+        hiddenBox.classList.add("hidden");
+        allPets.classList.remove("hidden");
+        displayAllPets(pets)
       }
-    });
+
+    })
+  .catch ((err) => {
+    spinner.classList.add("hidden");
+    console.log(err);
+  })
   // .catch((error) => console.error(error));
 
   // .catch(err => console.log(err))
@@ -187,11 +207,13 @@ const displayDetails = (id) => {
 // displayAllPets function here
 const displayAllPets = (pets) => {
   const allPets = document.getElementById("all-pets");
+  const hiddenBox = document.getElementById("hidden-box");
   const spinner = document.getElementById("spinner");
   // console.log('spinner Hi');
   spinner.classList.add("flex");
   spinner.classList.remove("hidden");
   allPets.classList.add("invisible");
+  hiddenBox.classList.add("invisible");
 
   setTimeout(() => {
 
@@ -267,6 +289,7 @@ const displayAllPets = (pets) => {
     spinner.classList.add('hidden');
     spinner.classList.remove('flex');
     allPets.classList.remove("invisible");
+    hiddenBox.classList.remove("invisible");
   }, 2000);
 
 
