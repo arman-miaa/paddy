@@ -3,8 +3,8 @@
 // }
 
 // buttonCategory function here
-document.getElementById("hidden-box").classList.add("hidden");
-document.getElementById("countdown-container").classList.add("hidden");
+// document.getElementById("hidden-box").classList.add("hidden");
+// document.getElementById("countdown-container").classList.add("hidden");
 
 const buttonCategory = () => {
   console.log("Hello");
@@ -71,7 +71,7 @@ const getPetByCategory = (categoryName) => {
   const spinner = document.getElementById("spinner");
   const hiddenBox= document.getElementById("hidden-box");
   const allPets = document.getElementById("all-pets");
-  const likeImgSite = document.getElementById("like-img-box");
+  const likeImgSite = document.getElementById("like-img-main");
 
 
   // spinner show
@@ -215,7 +215,7 @@ const displayAllPets = (pets) => {
   const allPets = document.getElementById("all-pets");
   const hiddenBox = document.getElementById("hidden-box");
   const spinner = document.getElementById("spinner");
-  const likeImgSite = document.getElementById("like-img-box");
+  const likeImgSite = document.getElementById("like-img-main");
   // console.log('spinner Hi');
   spinner.classList.add("flex");
   spinner.classList.remove("hidden");
