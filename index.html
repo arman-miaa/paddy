@@ -172,7 +172,7 @@
        
 
         <!-- text and sort btn -->
-        <div class="flex justify-between items-center mx-4 md:mx-0 mt-4">
+        <div class="flex  justify-between items-center mx-4 md:mx-0 mt-4">
           <h3 class="text-xl font-medium md:text-2xl md:font-bold">Best Deal For you</h3>
           <button id="sortedProductBtn" onclick="sortedProducts()"
             class=" md:w-auto btn mt-2 border-none outline-none md:mt-4 md:text-lg xl:text-xl md:font-semibold xl:font-bold bg-primary px-10 hover:bg-primary text-white text-center"
@@ -184,7 +184,7 @@
 
 <!-- spinner section -->
    <div id="spinner"
-                class=" text-center hidden   justify-center items-center ">
+                class=" text-center mt-20 hidden justify-center items-center ">
                 <span class="loading loading-bars loading-xs "></span>
                 <span class="loading loading-bars loading-sm "></span>
                 <span class="loading loading-bars loading-md "></span>
@@ -205,7 +205,8 @@
         
         </div>
           <!--hidden box no information  -->
-          <div
+         
+ <div
             id="hidden-box"
             class="bg-[#ecd0ee39] h-[500px]  col-span-9 rounded-xl flex flex-col justify-center items-center"
           >
@@ -216,9 +217,8 @@
 
             </p>
           </div>
-
           <!--right side cards container  -->
-          <div  id="like-img-box" class="border-2   items-start justify-start min-h-[200px] col-span-3 grid md:grid-cols-2  rounded-xl">
+          <div  id="like-img-box" class="border-2 h-full items-start justify-start col-span-3 grid md:grid-cols-2  gap-0 rounded-xl">
             
 
           </div>
@@ -226,8 +226,8 @@
         </div>
 
         <!-- count modal box start -->
-          <div class=" fixed hidden mx-auto z-10 w-full h-[130vh] bg-[rgba(0,0,0,0.7)]  flex justify-center  items-center top-0"
-            id="countdown_container">
+          <div id="countdown-container" class=" fixed  mx-auto z-10 w-full h-[130vh] bg-[rgba(0,0,0,0.7)]  flex justify-center  items-center top-0 left-0 right-0"
+            >
 
             <div
                 class="card bg-neutral relative text-neutral-content w-96  h-[300px] bg-[white] text-[black] transform ">

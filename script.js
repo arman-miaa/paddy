@@ -4,6 +4,7 @@
 
 // buttonCategory function here
 document.getElementById("hidden-box").classList.add("hidden");
+document.getElementById("countdown-container").classList.add("hidden");
 
 const buttonCategory = () => {
   console.log("Hello");
@@ -68,12 +69,15 @@ const displayBtn = (categorBtn) => {
 // function to get pets by category buttons
 const getPetByCategory = (categoryName) => {
   const spinner = document.getElementById("spinner");
-  const hiddenBox = document.getElementById("hidden-box");
+  const hiddenBox= document.getElementById("hidden-box");
   const allPets = document.getElementById("all-pets");
+  const likeImgSite = document.getElementById("like-img-box");
+
 
   // spinner show
   spinner.classList.remove("hidden");
   allPets.classList.add("hidden");
+  likeImgSite.classList.add("hidden");
   hiddenBox.classList.add("hidden");
 
   // console.log(categoryName);
@@ -90,11 +94,13 @@ const getPetByCategory = (categoryName) => {
           spinner.classList.add("hidden");
           hiddenBox.classList.remove("hidden");
           allPets.classList.add("hidden");
+          likeImgSite.classList.remove("hidden");
         }, 3000);
       } else {
         spinner.classList.add("hidden");
         hiddenBox.classList.add("hidden");
         allPets.classList.remove("hidden");
+        likeImgSite.classList.remove("hidden");
         displayAllPets(pets)
       }
 
@@ -116,7 +122,7 @@ const likePet = (petId) => {
   likePetImg.innerHTML = `
   
   <div class=" p-[10px]">
-              <img class="rounded-xl w-auto" src="${petId}" alt="" />
+              <img class="rounded-xl object-cover w-auto" src="${petId}" alt="" />
             </div>
   
   `;
@@ -209,10 +215,13 @@ const displayAllPets = (pets) => {
   const allPets = document.getElementById("all-pets");
   const hiddenBox = document.getElementById("hidden-box");
   const spinner = document.getElementById("spinner");
+  const likeImgSite = document.getElementById("like-img-box");
   // console.log('spinner Hi');
   spinner.classList.add("flex");
   spinner.classList.remove("hidden");
   allPets.classList.add("invisible");
+  likeImgSite.classList.add("invisible");
+
   hiddenBox.classList.add("invisible");
 
   setTimeout(() => {
@@ -289,6 +298,7 @@ const displayAllPets = (pets) => {
     spinner.classList.add('hidden');
     spinner.classList.remove('flex');
     allPets.classList.remove("invisible");
+    likeImgSite.classList.remove("invisible");
     hiddenBox.classList.remove("invisible");
   }, 2000);
 
@@ -353,7 +363,7 @@ function clickAdoptBtn(e) {
     "hover:bg-[lightgray]"
   );
 
-  const countdownBox = document.getElementById("countdown_container");
+  const countdownBox = document.getElementById("countdown-container");
   countdownBox.classList.remove("hidden");
   countdownBox.classList.add("flex");
 
