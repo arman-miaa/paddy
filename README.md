@@ -13,11 +13,11 @@ Peddy - Pet Adoption Platform is an interactive web application created to strea
 
 ## ES6 Features Used 🛠️
 - `let` and `const` for block-scoped variables
-- Arrow functions (`=>`)
+- Arrow functions `(=>)` for concise function expressions
 - Template literals for dynamic HTML content  
 - Array Iteration and Sorting: Implemented forEach for array traversal and sort() for organizing data efficiently.
 
-- `fetch` API for asynchronous data loading
+- Promises with then() and catch() for handling asynchronous operations (used extensively in fetch requests)
 
 ## Live Link 🌐
 

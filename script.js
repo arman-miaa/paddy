@@ -6,7 +6,7 @@ const buttonCategory = () => {
   fetch("https://openapi.programming-hero.com/api/peddy/categories")
     .then((response) => response.json())
     .then((data) => displayBtn(data.categories))
-    .catch((err) => console.log(err));
+    .catch((err) => console.log("ERROR", err));
 };
 
 //  all pets section function
@@ -19,7 +19,7 @@ const allPets = () => {
       pet = data.pets;
       displayAllPets(pet);
     })
-    .catch((err) => console.log(err));
+    .catch((err) => console.log("ERROR",err));
 };
 
 // displayBtn function here
@@ -30,8 +30,8 @@ const displayBtn = (categorBtn) => {
     const showAllBtn = document.createElement("div");
     showAllBtn.innerHTML = `
         <button class="category-button h-12 w-full flex justify-center gap-2 items-center py-8 rounded-lg border-2">
-                        <img src='${btn.category_icon}' alt="">
-                        <p>${btn.category}</p>
+                        <img src='${btn.category_icon || "<span class='text-red-400'>Not Found</span>"}' alt="">
+                        <p>${btn.category || "<span class='text-red-400'>Not Found</span>"}</p>
                     </button>        
                     `;
     categoryBtn.appendChild(showAllBtn);
@@ -85,7 +85,7 @@ const getPetByCategory = (categoryName) => {
     })
     .catch((err) => {
       spinner.classList.add("hidden");
-      console.log(err);
+      console.log("ERROR",err);
     }); 
 };
 
@@ -95,7 +95,7 @@ const likePet = (petId) => {
   const likePetImg = document.createElement("div");
   likePetImg.innerHTML = `  
   <div class=" p-[10px]">
-              <img class="rounded-xl object-cover w-auto" src="${petId}" alt="" />
+              <img class="rounded-xl object-cover w-auto" src="${petId || "<span class='text-red-400'>Not Found</span>"}" alt="" />
             </div>  
   `;
   likeImgBox.appendChild(likePetImg);
