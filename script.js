@@ -3,7 +3,6 @@
 // }
 
 const buttonCategory = () => {
-  console.log("Hello");
   fetch("https://openapi.programming-hero.com/api/peddy/categories")
     .then((response) => response.json())
     .then((data) => displayBtn(data.categories))
@@ -14,7 +13,6 @@ const buttonCategory = () => {
 let pet = [];
 let currentFilteredPets = [];
 const allPets = () => {
-  console.log("Allpets");
   fetch("https://openapi.programming-hero.com/api/peddy/pets")
     .then((response) => response.json())
     .then((data) => {
@@ -34,8 +32,7 @@ const displayBtn = (categorBtn) => {
         <button class="category-button h-12 w-full flex justify-center gap-2 items-center py-8 rounded-lg border-2">
                         <img src='${btn.category_icon}' alt="">
                         <p>${btn.category}</p>
-                    </button>
-        
+                    </button>        
                     `;
     categoryBtn.appendChild(showAllBtn);
 
@@ -176,11 +173,11 @@ const displayDetails = (id) => {
           </div>
           <hr>
           <h3 class="text-2xl font-bold">Details Information</h3>
-          <p>${
+          <p class="text-text2 font-normal leading-6">${
             petData.pet_details || "<span class='text-red-400'>Not Found</span>"
           }</p>
 
-          <button id="closeButton" class="mt-4 px-4 py-2 w-full text-green-900 bg-[#0E7A811A] rounded">Cancel</button>
+          <button id="closeButton" class="mt-4 px-4 text-xl border-2 border-[#0e798187] font-bold py-4 w-full text-green-900 bg-[#0E7A811A] rounded-lg">Cancel</button>
         </div>
       `;
 
