@@ -23,11 +23,8 @@ Peddy - Pet Adoption Platform is an interactive web application created to strea
 
 
 Netlify Live Link : 👉
-[](https://ph-assignment-6-api-project.netlify.app/)
-https://ph-assignment-6-api-project.netlify.app/  
-Surge Live Link : 👉
-[]()
-https://ph-assignment-6-api-project.surge.sh/#viewMore   
+[](https://paddy-32.netlify.app/)
+https://paddy-32.netlify.app/  
 
 
 
